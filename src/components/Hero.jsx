@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImage from '../assets/Grande-mosquee-de-touba-Magal-kazurajab-2025-scaled.jpg'; 
+import heroImage from '../assets/main-mosque.webp'; 
 
 function Hero() {
   return (
@@ -19,7 +19,7 @@ function Hero() {
       <p className="mb-5">
         Consultez les horaires, inscrivez-vous et suivez les notifications en temps réel.
       </p>
-      <button className="btn btn-primary">S'inscrire</button>
+      <a href="/inscription" className=" ">S'inscrire</a>
     </div>
   </div>
 </div>
