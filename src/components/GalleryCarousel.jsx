@@ -14,9 +14,10 @@ const galleryImages = [
     alt: 'Magal Kazurajab 2025',
   },
   {
-    src: '/vite.svg',
-    alt: 'Logo Vite',
+    src: '/main-mosque.webp',
+    alt: 'Magal Kazurajab 2025',
   },
+  
 ];
 
 function GalleryCarousel() {
