@@ -39,7 +39,7 @@ function Inscription() {
     if (Object.keys(newErrors).length === 0) {
       try {
         console.log('Données envoyées:', form);
-        const res = await fetch('http://127.0.0.1:8000/register', {
+        const res = await fetch('http://127.0.0.1:8000/api/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
