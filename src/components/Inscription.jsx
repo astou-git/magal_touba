@@ -5,21 +5,25 @@ import { useNavigate } from 'react-router-dom';
 function Inscription() {
   const navigate = useNavigate();
   const [form, setForm] = useState({
-    nom: '',
+    name: '',
     email: '',
-    tel: '',
-    ville: '',
+    password: '',
+    telephone: '',
+    ville_origine: '',
   });
   const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState('');
 
   const validate = () => {
     const newErrors = {};
-    if (!form.nom.trim()) newErrors.nom = 'Le nom complet est requis.';
+    if (!form.name.trim()) newErrors.name = 'Le nom complet est requis.';
     if (!form.email.trim()) newErrors.email = 'L\'email est requis.';
     else if (!/^\S+@\S+\.\S+$/.test(form.email)) newErrors.email = 'Email invalide.';
-    if (!form.tel.trim()) newErrors.tel = 'Le téléphone est requis.';
-    else if (!/^\d{9,15}$/.test(form.tel.replace(/\D/g, ''))) newErrors.tel = 'Numéro invalide.';
-    if (!form.ville.trim()) newErrors.ville = 'La ville de départ est requise.';
+    if (!form.password.trim()) newErrors.password = 'Le mot de passe est requis.';
+    else if (form.password.length < 6) newErrors.password = 'Le mot de passe doit contenir au moins 6 caractères.';
+    if (!form.telephone.trim()) newErrors.telephone = 'Le téléphone est requis.';
+    else if (!/^.{6,20}$/.test(form.telephone)) newErrors.telephone = 'Numéro invalide.';
+    if (!form.ville_origine.trim()) newErrors.ville_origine = 'La ville d\'origine est requise.';
     return newErrors;
   };
 
@@ -27,26 +31,54 @@ function Inscription() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
+    setStatus('');
     const newErrors = validate();
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      alert('Inscription réussie !');
-      // Ici, envoyer les données au backend ou API
+      try {
+        console.log('Données envoyées:', form);
+        const res = await fetch('http://127.0.0.1:8000/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(form),
+        });
+        console.log('Réponse brute:', res);
+        if (!res.ok) {
+          let errData;
+          try {
+            errData = await res.json();
+            console.log('Erreur API:', errData);
+          } catch (jsonErr) {
+            console.log('Erreur parsing JSON:', jsonErr);
+          }
+          setStatus('Erreur: ' + (errData?.message || 'Inscription impossible.'));
+        } else {
+          const successData = await res.json();
+          console.log('Réponse succès:', successData);
+          setStatus('Inscription réussie !');
+          setForm({ name: '', email: '', password: '', telephone: '', ville_origine: '' });
+        }
+      } catch (err) {
+        console.log('Erreur réseau ou serveur:', err);
+        setStatus('Erreur réseau ou serveur.');
+      }
     }
   };
 
   return (
     <section
-      className="hero bg-base-200 min-h-screen"
+      className="hero min-h-screen"
       style={{
-        backgroundImage: `url(${heroImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+          backgroundImage:
+            `url(${heroImage})`,
+            
+        }}
     >
-      <div className="hero-overlay bg-black bg-opacity-40"></div>
+      <div className="hero-overlay  bg-opacity-40"></div>
       <div className="hero-content flex-col lg:flex-row-reverse relative z-10">
         <div className="text-center lg:text-left text-white">
           <h1 className="text-5xl font-bold mb-2">Inscrivez-vous au Magal</h1>
@@ -67,14 +99,14 @@ function Inscription() {
                 <label className="label">Nom complet</label>
                 <input
                   type="text"
-                  name="nom"
-                  className={`input ${errors.nom ? 'input-error' : ''}`}
+                  name="name"
+                  className={`input ${errors.name ? 'input-error' : ''}`}
                   placeholder="Nom complet"
-                  value={form.nom}
+                  value={form.name}
                   onChange={handleChange}
                   required
                 />
-                {errors.nom && <span className="text-error text-xs">{errors.nom}</span>}
+                {errors.name && <span className="text-error text-xs">{errors.name}</span>}
 
                 <label className="label">Email</label>
                 <input
@@ -90,29 +122,41 @@ function Inscription() {
 
                 <label className="label">Téléphone</label>
                 <input
-                  type="tel"
-                  name="tel"
-                  className={`input ${errors.tel ? 'input-error' : ''}`}
+                  type="text"
+                  name="telephone"
+                  className={`input ${errors.telephone ? 'input-error' : ''}`}
                   placeholder="Téléphone"
-                  value={form.tel}
+                  value={form.telephone}
                   onChange={handleChange}
                   required
                 />
-                {errors.tel && <span className="text-error text-xs">{errors.tel}</span>}
+                {errors.telephone && <span className="text-error text-xs">{errors.telephone}</span>}
 
-                <label className="label">Ville de départ</label>
+                <label className="label">Ville d'origine</label>
                 <input
                   type="text"
-                  name="ville"
-                  className={`input ${errors.ville ? 'input-error' : ''}`}
-                  placeholder="Ville de départ"
-                  value={form.ville}
+                  name="ville_origine"
+                  className={`input ${errors.ville_origine ? 'input-error' : ''}`}
+                  placeholder="Ville d'origine"
+                  value={form.ville_origine}
                   onChange={handleChange}
                   required
                 />
-                {errors.ville && <span className="text-error text-xs">{errors.ville}</span>}
+                {errors.ville_origine && <span className="text-error text-xs">{errors.ville_origine}</span>}
+                <label className="label">Mot de passe</label>
+                <input
+                  type="password"
+                  name="password"
+                  className={`input ${errors.password ? 'input-error' : ''}`}
+                  placeholder="Mot de passe"
+                  value={form.password}
+                  onChange={handleChange}
+                  required
+                />
+                {errors.password && <span className="text-error text-xs">{errors.password}</span>}
 
                 <button className="btn btn-neutral mt-4 w-full" type="submit">S'inscrire</button>
+                {status && <div className="mt-4 text-center text-info">{status}</div>}
               </fieldset>
             </form>
           </div>
