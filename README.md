@@ -1,16 +1,19 @@
 # React + Vite
+## Magal Touba Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ce projet est une application web développée pour faciliter la gestion et la participation au Grand Magal de Touba.
 
-Currently, two official plugins are available:
+### Stack technique
+- **Vite** a été utilisé pour la création et le démarrage rapide du projet React.
+- **Tailwind CSS** est intégré pour le design et la mise en page responsive.
+- **React Router DOM** permet la navigation entre les différentes pages de l'application (accueil, inscription, contact, etc.).
+- Les requêtes vers l'API backend sont réalisées avec la fonction native **fetch** de JavaScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Fonctionnalités principales
+- Consultation des horaires de prières dynamiques
+- Inscription des pèlerins avec validation et envoi vers l'API
+- Galerie de lieux emblématiques de Touba
+- Gestion des points d'intérêt et informations pratiques
+- Formulaire de contact pour envoyer un message
 
-## React Compiler
-
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Ce projet est conçu pour être facilement extensible et connecté à un backend Laravel ou autre API compatible.
