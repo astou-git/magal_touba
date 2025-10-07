@@ -1,12 +1,10 @@
 # React + Vite
 ## Magal Touba Web App
 
-Ce projet est une application web développée pour faciliter la gestion et la participation au Grand Magal de Touba.
+Ce projet est une application web pour faciliter la gestion au Grand Magal de Touba.
 
-### Stack technique
+### J'ai utilisé
 - **Vite** a été utilisé pour la création et le démarrage rapide du projet React.
-- **Tailwind CSS** est intégré pour le design et la mise en page responsive.
-- **React Router DOM** permet la navigation entre les différentes pages de l'application (accueil, inscription, contact, etc.).
 - Les requêtes vers l'API backend sont réalisées avec la fonction native **fetch** de JavaScript.
 
 ### Fonctionnalités principales
@@ -16,4 +14,4 @@ Ce projet est une application web développée pour faciliter la gestion et la p
 - Gestion des points d'intérêt et informations pratiques
 - Formulaire de contact pour envoyer un message
 
-Ce projet est conçu pour être facilement extensible et connecté à un backend Laravel ou autre API compatible.
+Pour réaliser ce projet j'ai regarder des totos sur youtube que j'ai suivit pour avoir ce resultat et aussi j'ai fait des recherches au niveau de quelques intellignece artificiel
