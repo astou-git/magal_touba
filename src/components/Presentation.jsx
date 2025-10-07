@@ -1,22 +1,23 @@
 import React from 'react';
+import sampleImg from '../assets/Grande_mosquée_de_Touba.jpg'; // remplace par l'image correcte si nécessaire
 
 function Presentation() {
   return (
-    <div data-theme="light" className="hero bg-base-200 ">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <img
-          src="/touba-senegal_1057-9665.jpg"
-          alt="Grande Mosquée de Touba"
-          className="max-w-sm rounded-lg shadow-2xl h-96 object-cover"
-        />
-        <div>
-          <h1 className="text-5xl font-bold text-blue-800">Le Grand Magal de Touba</h1>
-          <p className="py-6 text-lg text-gray-700">
-            Le Grand Magal de Touba est la plus grande fête religieuse du Sénégal, célébrée chaque année par la confrérie mouride. Il commémore le départ en exil de Cheikh Ahmadou Bamba, fondateur du mouridisme, en 1895. Cet événement attire des millions de pèlerins venus rendre hommage à son héritage spirituel et à son engagement envers la foi islamique.
+    <section data-theme="light" className="py-12 bg-base-200">
+      <div className="container mx-auto flex flex-col items-center justify-between min-h-[48vh]">
+        <div className="text-center px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-4">Présentation</h2>
+          <p className="max-w-2xl mx-auto text-gray-700">
+            Retrouvez ici l'historique, les valeurs et les temps forts du Grand Magal de Touba. Informations pratiques, conseils de déplacement et ressources officielles.
           </p>
         </div>
+
+        {/* image placée tout en bas */}
+        <div className="w-full flex justify-center mt-8">
+          <img src={sampleImg} alt="Presentation" className="w-full max-w-sm object-contain" />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

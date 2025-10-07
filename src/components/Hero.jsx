@@ -1,28 +1,25 @@
 import React from 'react';
-import heroImage from '../assets/main-mosque.webp'; 
+import heroImage from '../assets/Grande-mosquee-de-touba-Magal-kazurajab-2025-scaled.jpg'; 
 
 function Hero() {
   return (
     <>
-    <div
-  className="hero min-h-screen"
-  style={{
-    backgroundImage:
-      `url(${heroImage})`,
-      
-  }}
->
-  <div className="hero-overlay"></div>
-  <div className="hero-content text-neutral-content text-center">
-    <div className="max-w-md">
-      <h1 className="mb-5 text-9xl font-bold">Bienvenue au Magal de Touba</h1>
-      <p className="mb-5">
-        Consultez les horaires, inscrivez-vous et suivez les notifications en temps réel.
-      </p>
-      <a href="/inscription" className=" ">S'inscrire</a>
-    </div>
-  </div>
-</div>
+      <div
+        id="hero"
+        className="hero min-h-screen bg-cover bg-center relative"
+        style={{ backgroundImage: `url(${heroImage})` }}
+      >
+        <div className="hero-overlay bg-black/40"></div>
+        {/* Contenu aligné à gauche et centré verticalement */}
+        <div className="hero-content text-white w-full items-center justify-start">
+          <div className="max-w-2xl w-1/2 pl-12">
+            <h1 className="mb-5 text-[6rem] md:text-[10rem] leading-none font-extrabold uppercase">Le Grand Magal de Touba</h1>
+            <p className="mb-6 text-lg md:text-2xl">
+              Informations officielles, itinéraires et mises à jour en direct pour suivre le Grand Magal.
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

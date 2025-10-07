@@ -33,10 +33,9 @@ function Contact() {
   };
 
   return (
-    <section data-theme="light" className="py-16 bg-base-200">
-      <div className="container mx-auto max-w-xl bg-base-100 rounded-lg shadow-lg p-8">
-        <h2 className="text-4xl font-bold text-blue-800 mb-4 text-center">Contactez-nous</h2>
-        <p className="text-lg text-gray-700 mb-8 text-center">Une question, une demande ou un besoin d'information sur le Magal de Touba ? Envoyez-nous un message et nous vous répondrons rapidement.</p>
+    <section data-theme="light" className=" bg-base-200">
+      <div className="container mx-auto  bg-base-100 rounded-lg shadow-lg p-8">
+        <h2 className="text-4xl font-bold text-blue-800 mb-4 text-center">Contact</h2>
         <form onSubmit={handleSubmit} noValidate>
           <div className="mb-4">
             <label className="label">Nom</label>
@@ -44,7 +43,7 @@ function Contact() {
               type="text"
               name="name"
               className={`input w-full ${errors.name ? 'input-error' : ''}`}
-              placeholder="Votre nom"
+              placeholder="Entrer votre nom"
               value={form.name}
               onChange={handleChange}
               required
@@ -57,7 +56,7 @@ function Contact() {
               type="email"
               name="email"
               className={`input w-full ${errors.email ? 'input-error' : ''}`}
-              placeholder="Votre email"
+              placeholder="Entrer votre email"
               value={form.email}
               onChange={handleChange}
               required
@@ -69,7 +68,6 @@ function Contact() {
             <textarea
               name="message"
               className={`textarea w-full ${errors.message ? 'textarea-error' : ''}`}
-              placeholder="Votre message"
               value={form.message}
               onChange={handleChange}
               required

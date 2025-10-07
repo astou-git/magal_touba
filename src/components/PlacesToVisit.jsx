@@ -22,9 +22,9 @@ function PlacesToVisit() {
   }, []);
 
   return (
-    <section data-theme="light" className="py-16 bg-base-200">
+    <section data-theme="light" className=" bg-base-200">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold text-blue-800 mb-8">À Visiter à Touba</h2>
+        <h2 className="text-4xl font-bold text-blue-800 mb-8">Lieu à Touba</h2>
         {loading ? (
           <p className="text-lg text-gray-600">Chargement...</p>
         ) : error ? (
@@ -34,11 +34,10 @@ function PlacesToVisit() {
             {places.map((place) => (
               <div key={place.id} className="card bg-base-100 shadow-xl rounded-lg">
                 <figure>
-                  <img src={place.image} alt={place.nom} className="rounded-t-lg h-48 w-full object-cover" />
+                  <img src={place.image} alt={place.nom} className="rounded-t-lg h-56 w-full object-cover" />
                 </figure>
                 <div className="card-body">
                   <h3 className="text-2xl font-semibold text-blue-600 mb-4">{place.nom}</h3>
-                  <p className="text-gray-700 mb-4">{place.description}</p>
                   <span className="text-sm text-gray-500">{place.type}</span>
                 </div>
               </div>

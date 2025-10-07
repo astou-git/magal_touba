@@ -24,8 +24,7 @@ function GalleryCarousel() {
   return (
     <section data-theme="light" className="py-16 bg-base-200">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold text-blue-800 mb-4">Galerie de Touba</h2>
-        <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">Découvrez en images quelques lieux emblématiques de Touba pour les pèlerins : la Grande Mosquée, le mausolée, la bibliothèque et les places historiques. Cette galerie vous offre un aperçu de la spiritualité et de l'architecture de la ville.</p>
+        <h2 className="text-4xl font-bold text-blue-800 mb-4">Galerie</h2>
         <div className="carousel rounded-box w-full max-w-4xl mx-auto mb-8">
           {galleryImages.map((img, idx) => (
             <div className="carousel-item" key={idx}>
