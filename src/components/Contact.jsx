@@ -35,7 +35,7 @@ function Contact() {
   return (
     <section data-theme="light" className=" bg-base-200">
       <div className="container mx-auto  bg-base-100 rounded-lg shadow-lg p-8">
-        <h2 className="text-4xl font-bold text-blue-800 mb-4 text-center">Contact</h2>
+        <h2 className="text-4xl font-bold text-green-800  mb-4 text-center">Contact</h2>
         <form onSubmit={handleSubmit} noValidate>
           <div className="mb-4">
             <label className="label">Nom</label>

@@ -23,16 +23,16 @@ function PrayerTimes() {
   return (
     <section data-theme="light" className="py-16 bg-base-200">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold text-blue-800 mb-8">Horaires de Prières</h2>
+        <h2 className="text-4xl font-bold text-green-800  mb-8">Heure de Prières</h2>
         {loading ? (
           <p className="text-lg text-gray-600">Chargement...</p>
         ) : error ? (
           <p className="text-error">{error}</p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
             {prayerTimes.map((prayer) => (
-              <div key={prayer.id} className="card bg-white shadow-xl rounded-lg p-6">
-                <h3 className="text-2xl font-semibold text-blue-600 mb-4">{prayer.nom}</h3>
+              <div key={prayer.id} className="card bg-green-300 p-4">
+                <h3 className="text-2xl font-semibold text-black mb-4">{prayer.nom}</h3>
                 <p className="text-xl text-gray-700">{prayer.heure.slice(0,5)}</p>
               </div>
             ))}

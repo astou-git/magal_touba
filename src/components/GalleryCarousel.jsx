@@ -24,7 +24,7 @@ function GalleryCarousel() {
   return (
     <section data-theme="light" className="py-16 bg-base-200">
       <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold text-blue-800 mb-4">Galerie</h2>
+        <h2 className="text-4xl font-bold text-green-800  mb-4">Galerie</h2>
         <div className="carousel rounded-box w-full max-w-4xl mx-auto mb-8">
           {galleryImages.map((img, idx) => (
             <div className="carousel-item" key={idx}>
